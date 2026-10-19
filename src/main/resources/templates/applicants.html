@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admission office</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    form { display: inline; }
+  </style>
+</head>
+<body>
+  <nav><a href="/">Apply</a></nav>
+  <h1>Admission office</h1>
+  <table id="applicantsTable">
+    <thead>
+      <tr><th>ID</th><th>Name</th><th>Email</th><th>Course</th><th>Percentage</th><th>Status</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr th:each="a : ${applicants}" th:id="'row-' + ${a.id}">
+        <td th:text="${a.id}">1</td>
+        <td th:text="${a.fullName}">Name</td>
+        <td th:text="${a.email}">email</td>
+        <td th:text="${a.course}">course</td>
+        <td th:text="${a.percentage}">80</td>
+        <td class="status" th:text="${a.status}">PENDING</td>
+        <td>
+          <form th:action="@{/applicants/{id}/approve(id=${a.id})}" method="post">
+            <button type="submit" th:id="'approve-' + ${a.id}">Approve</button>
+          </form>
+          <form th:action="@{/applicants/{id}/reject(id=${a.id})}" method="post">
+            <button type="submit" th:id="'reject-' + ${a.id}">Reject</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

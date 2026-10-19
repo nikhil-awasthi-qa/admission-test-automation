@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Application received</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 520px; margin: 40px auto; padding: 0 16px; }
+  </style>
+</head>
+<body>
+  <h1 id="confirmationTitle">Application received</h1>
+  <p>Application ID: <strong id="applicantId" th:text="${applicant.id}">1</strong></p>
+  <p>Name: <span id="confirmName" th:text="${applicant.fullName}">Name</span></p>
+  <p>Status: <span id="confirmStatus" th:text="${applicant.status}">PENDING</span></p>
+  <p><a href="/">Submit another application</a></p>
+</body>
+</html>

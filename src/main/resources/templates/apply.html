@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Admission Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 520px; margin: 40px auto; padding: 0 16px; }
+    label { display: block; margin-top: 14px; font-weight: bold; }
+    input, select { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; }
+    .error { color: #b00020; font-size: 13px; display: block; margin-top: 2px; }
+    button { margin-top: 20px; padding: 10px 18px; }
+    nav a { margin-right: 12px; }
+  </style>
+</head>
+<body>
+  <nav><a href="/">Apply</a><a href="/applicants" id="adminLink">Admission office</a></nav>
+  <h1>Student Admission Form</h1>
+
+  <form id="admissionForm" th:action="@{/apply}" th:object="${applicant}" method="post" novalidate>
+    <label>Full name
+      <input type="text" th:field="*{fullName}">
+    </label>
+    <span class="error" id="fullName-error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></span>
+
+    <label>Email
+      <input type="text" th:field="*{email}">
+    </label>
+    <span class="error" id="email-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+    <label>Phone (10 digits)
+      <input type="text" th:field="*{phone}">
+    </label>
+    <span class="error" id="phone-error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+
+    <label>Course
+      <select th:field="*{course}">
+        <option value="">-- Select course --</option>
+        <option value="B.Tech">B.Tech</option>
+        <option value="MCA">MCA</option>
+        <option value="BCA">BCA</option>
+        <option value="B.Sc">B.Sc</option>
+      </select>
+    </label>
+    <span class="error" id="course-error" th:if="${#fields.hasErrors('course')}" th:errors="*{course}"></span>
+
+    <label>Previous percentage (0 to 100)
+      <input type="text" th:field="*{percentage}">
+    </label>
+    <span class="error" id="percentage-error" th:if="${#fields.hasErrors('percentage')}" th:errors="*{percentage}"></span>
+
+    <button type="submit" id="submitBtn">Submit application</button>
+  </form>
+</body>
+</html>
