@@ -23,7 +23,16 @@ This is my own practice project. The application is a simple demo that I wrote s
 
 ## Test results
 
-Tests run automatically on GitHub Actions on every push (badge above). Open the latest run in the **Actions** tab to see the result. A report and screenshots of failed UI tests are attached to each run as an artifact.
+Last full run on my machine (Java 17, Maven 3.9.9, Chrome headless): **28 tests, 0 failures, 0 errors, 0 skipped**.
+
+| Test class | Tests | Result |
+|------------|-------|--------|
+| `ApiApplicantTest` | 10 | all passed |
+| `DbVerificationTest` | 6 | all passed |
+| `UiApplyTest` | 10 | all passed |
+| `EndToEndTest` | 2 | all passed |
+
+A GitHub Actions workflow (badge above) is set up to run the same suite on every push. A report and screenshots of failed UI tests are attached to each run as an artifact.
 
 ## Run it yourself
 
