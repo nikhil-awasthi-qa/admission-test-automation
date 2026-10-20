@@ -32,7 +32,7 @@ Last full run on my machine (Java 17, Maven 3.9.9, Chrome headless): **28 tests,
 | `UiApplyTest` | 10 | all passed |
 | `EndToEndTest` | 2 | all passed |
 
-A GitHub Actions workflow (badge above) is set up to run the same suite on every push. A report and screenshots of failed UI tests are attached to each run as an artifact.
+The same suite also runs on GitHub Actions (Ubuntu, Java 17) on every push. The workflow runs completed successfully (runs #1 to #3, badge above). A report and screenshots of failed UI tests are attached to each run as an artifact.
 
 ## Run it yourself
 
